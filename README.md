@@ -36,8 +36,7 @@ scattered electric field is expressed in terms of its components $(E_{\rho}, E_z
 In the examples, $E_\rho$ and $E_z$ are discretized with the first-kind Nedelec elements,
 while $E_\phi$ is discretized with the Lagrange elements.
 The minimal working examples only solve the problem for the harmonic number `m = 1`,
-since for `m = 0` DOLFINx and legacy DOLFIN output the same result, whatever the `degree`, which
-seem therefore to influence the higher-order harmonics.
+since for `m = 0` DOLFINx and legacy DOLFIN seem to agree whatever the `degree`.
 Scattering boundary conditions are used for making the boundary transparent to
 outgoing waves.
 
@@ -52,6 +51,7 @@ necessarily more complicated due to the lack of support of complex numbers.
 - `background_field_r` $\rightarrow\left(\cos \theta e^{i k_0 z \cos \theta} i^{-m+1} J_{m}^{\prime}\left(k_{0} \rho \sin\theta\right)\right)$
 - `background_field_z` $\rightarrow\left( \sin \theta e^{i k_0 z \cos \theta}i^{-m} J_{m}\left(k_0 \rho \sin \theta\right)\right)$
 - `background_field_p` $\rightarrow\left( \frac{\cos \theta}{k_0 \rho \sin \theta}e^{i k_0 z \cos \theta} i^{-m} J_{m}\left(k_0 \rho \sin \theta\right)\right)$
+- $J_m(x)\rightarrow m$-th order Bessel function
 - `curl_term` $\rightarrow \int_{\Omega_{dom}}-(\nabla \times \mathbf{E}^{(m)}_s)\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})~dx$
 - `eps_term_1` $\rightarrow \int_{\Omega_{abs}}-\varepsilon_r k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$ 
 - `eps_term_2` $\rightarrow \int_{\Omega_{bkg}}-k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$
