@@ -39,49 +39,17 @@ Here below a quick rundown of the DOLFIN/DOLFINx functions and their correspondi
 mathematical representation. The implementation of such functions in DOLFIN is
 necessarily more complicated due to the lack of support of complex numbers.
 
-$$
-\begin{align}
-\int_{\Omega_{cs}}&-(\nabla \times \mathbf{E}^{(m)}_s)
-\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})+\varepsilon_r k_0^{2}
-\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)}
-+k_0^{2}\left(\varepsilon_r
--\varepsilon_b\right)\mathbf{E}^{(m)}_b \cdot \bar{\mathbf{v}}^{(m)}
-\end{align}
-$$
 
 - `curl_r` $\rightarrow\left(-\frac{\partial a_{\phi}}{\partial z}-i \frac{m}{\rho}a_{z}\right)$
 - `curl_z` $\rightarrow\left(\frac{a_{\phi}}{\rho}+\frac{\partial a_{\phi}}{\partial \rho}+i \frac{m}{\rho} a_{\rho}\right)$
 - `curl_p` $\rightarrow\left(\frac{\partial a_{\rho}}{\partial z}-\frac{\partial a_{z}}{\partial \rho}\right)$
-- `background_field_r` $\rightarrow$
-- `background_field_z` $\rightarrow$
-- `background_field_p` $\rightarrow$
-- `curl_term` $\rightarrow$
-- `eps_term_1` $\rightarrow$
-- `eps_term_2` $\rightarrow$
-- `field_term` $\rightarrow$
-- `sbc_term` $\rightarrow$
+- `background_field_r` $\rightarrow\left(\cos \theta e^{i k z \cos \theta} i^{-m+1} J_{m}^{\prime}\left(k_{0} \rho \sin\theta\right)\right)$
+- `background_field_z` $\rightarrow\left( \sin \theta e^{i k z \cos \theta}i^{-m} J_{m}\left(k \rho \sin \theta\right)\right)$
+- `background_field_p` $\rightarrow\left( \cos \theta}{k \rho \sin \theta}e^{i k z \cos \theta} i^{-m} J_{m}\left(k \rho \sin \theta\right)\right)$
+- `curl_term` $\rightarrow \int_{\Omega_{dom}}-(\nabla \times \mathbf{E}^{(m)}_s)\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})~dx$
+- `eps_term_1` $\rightarrow \int_{\Omega_{abs}}-\varepsilon_r k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$ 
+- `eps_term_2` $\rightarrow \int_{\Omega_{bkg}}-k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$
+- `field_term` $\rightarrow \int_{\Omega_{abs}}-k_0^{2}\left(\varepsilon_r - 1\right)\mathbf{E}^{(m)}_b \cdot \bar{\mathbf{v}}^{(m)}  ~dx$
+- `sbc_term` $\rightarrow \int_{\partial\Omega_{sbc}}-(jk_0 + \frac{1}{r})(\mathbf{E}^{(m)}_s\times\mathbf{n}) \cdot (\bar{\mathbf{v}}^{(m)}\times\mathbf{n}) ~ds$
 
-$$
-\begin{align}
-\mathbf{E}^{(m)}_b = &\hat{\rho} \left(E_{0} \cos \theta
-e^{i k z \cos \theta} i^{-m+1} J_{m}^{\prime}\left(k_{0} \rho \sin
-\theta\right)\right)\\
-+&\hat{z} \left(E_{0} \sin \theta e^{i k z \cos \theta}i^{-m} J_{m}
-\left(k \rho \sin \theta\right)\right)\\
-+&\hat{\phi} \left(\frac{E_{0} \cos \theta}{k \rho \sin \theta}
-e^{i k z \cos \theta} i^{-m} J_{m}\left(k \rho \sin \theta\right)\right)
-\end{align}
-$$
 
-$$
-\begin{align}
-\left(\nabla \times \mathbf{a}^{(m)}\right) = &\left[\hat{\rho}
-\left(-\frac{\partial a_{\phi}^{(m)}}{\partial z}
--i \frac{m}{\rho} a_{z}^{(m)}\right)+\\ \hat{\phi}
-\left(\frac{\partial a_{\rho}^{(m)}}{\partial z}
--\frac{\partial a_{z}^{(m)}}{\partial \rho}\right)+\right.\\
-&\left.+\hat{z}\left(\frac{a_{\phi}^{(m)}}{\rho}
-+\frac{\partial a_{\phi}^{(m)}}{\partial \rho}
-+i \frac{m}{\rho} a_{\rho}^{(m)}\right)\right]
-\end{align}
-$$
