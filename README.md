@@ -41,7 +41,7 @@ Scattering boundary conditions are used for making the boundary transparent to
 outgoing waves.
 
 Here below a quick rundown of the DOLFIN/DOLFINx functions and their corresponding
-mathematical representation. The implementation of such functions in DOLFIN is
+mathematical representation. The implementation of such functions in legacy DOLFIN is
 necessarily more complicated due to the lack of support of complex numbers.
 
 
