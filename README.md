@@ -1,14 +1,18 @@
 # DOLFINx issue with axisymmetric electromagnetic problems
 
-This repository was made for showing a DOLFINx issue when solving
-axisymmetric Maxwell's equations. In particular, the problem arises when
-the `degree` of the finite elements in DOLFINx is increased from `degree = 2`
-to `degree=3`. The image here below compares the solution in legacy DOLFIN with
-the solutions in DOLFINx, and it clearly shows that for `degree=3` there are
-some artifacts in the DOLFINx solution, which do not appear in legacy DOLFIN
-and in DOLFINx for `degree=2`. The DOLFIN version of the code have been
+This repository has been made for showing a DOLFINx issue when solving
+axisymmetric Maxwell's equations. In particular, the problem seems to be related
+to the `degree` of the finite elements. When using `degree = 2`, the solution
+calculated by DOLFINx looks correct, as confirmed by a calculation of the
+absorption efficiency, which is pretty close to the analytical value. However,
+for `degree = 3` the solution presents some artifacts, which results in
+an absorption efficiency not close to its analytical value.  
+The image here below compares the solution in legacy DOLFIN with
+the solutions in DOLFINx. The DOLFIN version of the code have been
 extensively tested against analytical results, and therefore its output is
 reliable.
+
+![image](comparison.png)
 
 ## Minimal working examples
 
@@ -27,14 +31,10 @@ harmonics propagating independently.
 $$
 \begin{align}
 \sum_{m}\int_{\Omega_{cs}}&-(\nabla \times \mathbf{E}^{(m)}_s)
-\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})+\varepsilon_{r} k_{0}^{2}
+\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})+\varepsilon_{r} k_0^{2}
 \mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)}
-+k_{0}^{2}\left(\varepsilon_{r}
--\varepsilon_b\right)\mathbf{E}^{(m)}_b \cdot \bar{\mathbf{v}}^{(m)}\\
-&+\left(\boldsymbol{\mu}^{-1}_{pml} \nabla \times \mathbf{E}^{(m)}_s
-\right)\cdot \nabla \times \bar{\mathbf{v}}^{(m)}-k_{0}^{2}
-\left(\boldsymbol{\varepsilon}_{pml} \mathbf{E}^{(m)}_s \right)\cdot
-\bar{\mathbf{v}}^{(m)}~ \rho d\rho dz =0
++k_0^{2}\left(\varepsilon_{r}
+-\varepsilon_b\right)\mathbf{E}^{(m)}_b \cdot \bar{\mathbf{v}}^{(m)}
 \end{align}
 $$
 
