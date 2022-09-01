@@ -1,7 +1,28 @@
 # DOLFINx issue with axisymmetric electromagnetic problems
 
-This repository was made for showing an issue with
-DOLFINx in solving the axisymmetric version of Maxwell's equations.
+This repository was made for showing a DOLFINx issue when solving
+axisymmetric Maxwell's equations. In particular, the problem arises when
+the `degree` of the finite elements in DOLFINx is increased from `degree = 2`
+to `degree=3`. The image here below compares the solution in legacy DOLFIN with
+the solutions in DOLFINx, and it clearly shows that for `degree=3` there are
+some artifacts in the DOLFINx solution, which do not appear in legacy DOLFIN
+and in DOLFINx for `degree=2`. The DOLFIN version of the code have been
+extensively tested against analytical results, and therefore its output is
+reliable.
+
+## Minimal working examples
+
+The file `dolfinx_mwe.py` contains a minimal working example showing the issue.
+The file `legacy_mwe.py` contains the same problem solved in legacy DOLFIN for
+a comparison.
+
+## Problem
+
+The problem being solved is the calculation of the scattered electric field
+from a metallic sphere hit by a plane wave. Due to the symmetry of the problem,
+we can exploit the expansion of the field in cylindrical harmonics to simplify
+the 3D problems into few 2D problems, corresponding to the multiple cylindrical
+harmonics propagating independently.
 
 $$
 \begin{align}
