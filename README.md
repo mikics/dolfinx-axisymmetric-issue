@@ -46,7 +46,7 @@ $$
 \end{align}
 $$
 
-- `curl_r` $\rightarrow \left[\hat{\rho}\left(-\frac{\partial a_{\phi}^{(m)}}{\partial z}-i \frac{m}{\rho} a_{z}^{(m)}\right)$
+- `curl_r` $\rightarrow \left(-\frac{\partial a_{\phi}^{(m)}}{\partial z}-i \frac{m}{\rho} a_{z}^{(m)}\right)$
 
 $$
 \begin{align}
