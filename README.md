@@ -31,6 +31,8 @@ we can exploit the expansion of the field in cylindrical harmonics to simplify
 the 3D problems into few 2D problems, corresponding to the multiple cylindrical
 harmonics which propagates independently. In particular, the
 minimal working examples only solves the problem for the harmonic number `m = 1`.
+Scattering boundary conditions are used for making the boundary transparent to
+outgoing waves.
 
 Here below a quick rundown of the DOLFIN/DOLFINx functions and their corresponding
 mathematical representation. The implementation of such functions in DOLFIN is
@@ -38,7 +40,7 @@ necessarily more complicated due to the lack of support of complex numbers.
 
 $$
 \begin{align}
-\sum_{m}\int_{\Omega_{cs}}&-(\nabla \times \mathbf{E}^{(m)}_s)
+\int_{\Omega_{cs}}&-(\nabla \times \mathbf{E}^{(m)}_s)
 \cdot (\nabla \times \bar{\mathbf{v}}^{(m)})+\varepsilon_r k_0^{2}
 \mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)}
 +k_0^{2}\left(\varepsilon_r
@@ -49,6 +51,14 @@ $$
 - `curl_r` $\rightarrow\left(-\frac{\partial a_{\phi}}{\partial z}-i \frac{m}{\rho}a_{z}\right)$
 - `curl_z` $\rightarrow\left(\frac{a_{\phi}}{\rho}+\frac{\partial a_{\phi}}{\partial \rho}+i \frac{m}{\rho} a_{\rho}\right)$
 - `curl_p` $\rightarrow\left(\frac{\partial a_{\rho}}{\partial z}-\frac{\partial a_{z}}{\partial \rho}\right)$
+- `background_field_r` $\rightarrow$
+- `background_field_z` $\rightarrow$
+- `background_field_p` $\rightarrow$
+- `curl_term` $\rightarrow$
+- `eps_term_1` $\rightarrow$
+- `eps_term_2` $\rightarrow$
+- `field_term` $\rightarrow$
+- `sbc_term` $\rightarrow$
 
 $$
 \begin{align}
