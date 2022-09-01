@@ -34,9 +34,9 @@ harmonics that propagate independently. For this reason,
 the reference coordinate system is the cylindrical one, $(\rho, z, \phi)$, and the
 scattered electric field is expressed in terms of its components $(E_{\rho}, E_z, E_{\phi})$.
 In the examples, $E_\rho$ and $E_z$ are discretized with the first-kind Nedelec elements,
-while $E_\phi$ is discretized with the Lagrange elements.
+while $E_\phi$ is discretized with Lagrange elements.
 The minimal working examples only solve the problem for the harmonic number `m = 1`,
-since for `m = 0` DOLFINx and legacy DOLFIN seem to agree whatever the `degree`.
+since for `m = 0` DOLFINx and legacy DOLFIN seem to agree, whatever the `degree`.
 Scattering boundary conditions are used for making the boundary transparent to
 outgoing waves.
 
