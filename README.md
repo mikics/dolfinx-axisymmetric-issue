@@ -32,7 +32,9 @@ we can exploit the expansion of the field in cylindrical harmonics to simplify
 the 3D problem into few 2D problems, corresponding to the multiple cylindrical
 harmonics that propagate independently. For this reason,
 the reference coordinate system is the cylindrical one, $(\rho, z, \phi)$, and the
-scattered electric field is expressed in terms of its components $(E_{\rho}, E_z, E_{\phi})$
+scattered electric field is expressed in terms of its components $(E_{\rho}, E_z, E_{\phi})$.
+In the examples, $E_\rho$ and $E_z$ are discretized with the first-kind Nedelec elements,
+while $E_\phi$ is discretized with the Lagrange elements.
 The minimal working examples only solve the problem for the harmonic number `m = 1`,
 since for `m = 0` DOLFINx and legacy DOLFIN output the same result, whatever the `degree`, which
 seem therefore to influence the higher-order harmonics.
