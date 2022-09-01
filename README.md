@@ -29,8 +29,9 @@ The problem being solved is the electromagnetic scattering of a plane wave
 from a metallic sphere. Due to the symmetry of the problem,
 we can exploit the expansion of the field in cylindrical harmonics to simplify
 the 3D problems into few 2D problems, corresponding to the multiple cylindrical
-harmonics which propagates independently. In particular, the
-minimal working examples only solves the problem for the harmonic number `m = 1`.
+harmonics which propagates independently. For this reason,
+the reference coordinate system is the cylindrical one, $(\rho, z, \phi)$.
+The minimal working examples only solves the problem for the harmonic number `m = 1`.
 Scattering boundary conditions are used for making the boundary transparent to
 outgoing waves.
 
