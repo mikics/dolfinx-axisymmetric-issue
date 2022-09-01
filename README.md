@@ -10,8 +10,8 @@ an absorption efficiency not close to its analytical value.
 
 The image here below compares the solution in legacy DOLFIN with
 the solutions in DOLFINx. The DOLFIN version of the code have been
-extensively tested against analytical results, and its output therefore its
-reliable and does not present any inconsistency using different `degree` for
+extensively tested against analytical results, and its output it is therefore
+reliable, and does not present any inconsistency using different `degree` for
 the finite elements.
 
 ![image](comparison.png)
@@ -25,13 +25,17 @@ legacy DOLFIN for a comparison.
 
 ## Problem
 
-The problem being solved is the electromagnetic scattering of a plane wave
-from a metallic sphere. Due to the symmetry of the problem,
+The problem solved  by `dolfinx_mwe.py` and `legacy_mwe.py`
+is the electromagnetic scattering of a plane wave
+by a metallic sphere. Due to the symmetry of the problem,
 we can exploit the expansion of the field in cylindrical harmonics to simplify
-the 3D problems into few 2D problems, corresponding to the multiple cylindrical
-harmonics which propagates independently. For this reason,
-the reference coordinate system is the cylindrical one, $(\rho, z, \phi)$.
-The minimal working examples only solves the problem for the harmonic number `m = 1`.
+the 3D problem into few 2D problems, corresponding to the multiple cylindrical
+harmonics that propagate independently. For this reason,
+the reference coordinate system is the cylindrical one, $(\rho, z, \phi)$, and the
+scattered electric field is expressed in terms of its components $(E_{\rho}, E_z, E_{\phi})$
+The minimal working examples only solve the problem for the harmonic number `m = 1`,
+since for `m = 0` DOLFINx and legacy DOLFIN output the same result, whatever the `degree`, which
+seem therefore to influence the higher-order harmonics.
 Scattering boundary conditions are used for making the boundary transparent to
 outgoing waves.
 
@@ -51,5 +55,3 @@ necessarily more complicated due to the lack of support of complex numbers.
 - `eps_term_2` $\rightarrow \int_{\Omega_{bkg}}-k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$
 - `field_term` $\rightarrow \int_{\Omega_{abs}}-k_0^{2}\left(\varepsilon_r - 1\right)\mathbf{E}^{(m)}_b \cdot \bar{\mathbf{v}}^{(m)}  ~dx$
 - `sbc_term` $\rightarrow \int_{\partial\Omega_{sbc}}-(jk_0 + \frac{1}{r})(\mathbf{E}^{(m)}_s\times\mathbf{n}) \cdot (\bar{\mathbf{v}}^{(m)}\times\mathbf{n}) ~ds$
-
-
