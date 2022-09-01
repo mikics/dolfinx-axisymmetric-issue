@@ -46,6 +46,8 @@ $$
 \end{align}
 $$
 
+- `curl_r` $\rightarrow \left[\hat{\rho}\left(-\frac{\partial a_{\phi}^{(m)}}{\partial z}-i \frac{m}{\rho} a_{z}^{(m)}\right)$
+
 $$
 \begin{align}
 \mathbf{E}^{(m)}_b = &\hat{\rho} \left(E_{0} \cos \theta
