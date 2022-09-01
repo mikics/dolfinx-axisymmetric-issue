@@ -43,9 +43,9 @@ necessarily more complicated due to the lack of support of complex numbers.
 - `curl_r` $\rightarrow\left(-\frac{\partial a_{\phi}}{\partial z}-i \frac{m}{\rho}a_{z}\right)$
 - `curl_z` $\rightarrow\left(\frac{a_{\phi}}{\rho}+\frac{\partial a_{\phi}}{\partial \rho}+i \frac{m}{\rho} a_{\rho}\right)$
 - `curl_p` $\rightarrow\left(\frac{\partial a_{\rho}}{\partial z}-\frac{\partial a_{z}}{\partial \rho}\right)$
-- `background_field_r` $\rightarrow\left(\cos \theta e^{i k z \cos \theta} i^{-m+1} J_{m}^{\prime}\left(k_{0} \rho \sin\theta\right)\right)$
-- `background_field_z` $\rightarrow\left( \sin \theta e^{i k z \cos \theta}i^{-m} J_{m}\left(k \rho \sin \theta\right)\right)$
-- `background_field_p` $\rightarrow\left( \frac{\cos \theta}{k \rho \sin \theta}e^{i k z \cos \theta} i^{-m} J_{m}\left(k \rho \sin \theta\right)\right)$
+- `background_field_r` $\rightarrow\left(\cos \theta e^{i k_0 z \cos \theta} i^{-m+1} J_{m}^{\prime}\left(k_{0} \rho \sin\theta\right)\right)$
+- `background_field_z` $\rightarrow\left( \sin \theta e^{i k_0 z \cos \theta}i^{-m} J_{m}\left(k_0 \rho \sin \theta\right)\right)$
+- `background_field_p` $\rightarrow\left( \frac{\cos \theta}{k_0 \rho \sin \theta}e^{i k_0 z \cos \theta} i^{-m} J_{m}\left(k_0 \rho \sin \theta\right)\right)$
 - `curl_term` $\rightarrow \int_{\Omega_{dom}}-(\nabla \times \mathbf{E}^{(m)}_s)\cdot (\nabla \times \bar{\mathbf{v}}^{(m)})~dx$
 - `eps_term_1` $\rightarrow \int_{\Omega_{abs}}-\varepsilon_r k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$ 
 - `eps_term_2` $\rightarrow \int_{\Omega_{bkg}}-k_0^{2}\mathbf{E}^{(m)}_s \cdot \bar{\mathbf{v}}^{(m)} ~dx$
