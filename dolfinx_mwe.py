@@ -165,7 +165,8 @@ F = curl_term + eps_term_1 + eps_term_2 + field_term + sbc_term
 a, L = lhs(F), rhs(F)
 
 problem = fem.petsc.LinearProblem(a, L, bcs=[], petsc_options={
-                                  "ksp_type": "preonly", "pc_type": "lu"})
+                                  "ksp_type": "preonly", "pc_type": "lu",
+                                  "pc_factor_mat_solver_type": "mumps"})
 Esh_m = problem.solve()
 
 Esh_rz_m, Esh_p_m = Esh_m.split()
