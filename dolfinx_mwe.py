@@ -167,6 +167,8 @@ a, L = lhs(F), rhs(F)
 problem = fem.petsc.LinearProblem(a, L, bcs=[], petsc_options={
                                   "ksp_type": "preonly", "pc_type": "lu",
                                   "pc_factor_mat_solver_type": "mumps"})
+
+
 Esh_m = problem.solve()
 
 Esh_rz_m, Esh_p_m = Esh_m.split()
@@ -193,3 +195,15 @@ print(f"The error is {err_abs*100}%")
 print()
 
 assert err_abs < 1e-2
+
+Eb_rz_m, Eb_p_m = Eb_m.split()
+V_dg = fem.VectorFunctionSpace(domain, ("DG", degree))
+Eb_rz_m_dg = fem.Function(V_dg)
+Eb_rz_m_dg.interpolate(f_rz)
+Eb_p_m.interpolate(f_p)
+
+with VTXWriter(domain.comm, f"sols/dolfinx/Eb_rz_m{m}_deg{degree}.bp", Eb_rz_m_dg) as f:
+    f.write(0.0)
+
+with VTXWriter(domain.comm, f"sols/dolfinx/Eb_p_m{m}_deg{degree}.bp", Eb_p_m) as f:
+    f.write(0.0)
